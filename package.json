@@ -1,6 +1,6 @@
 {
   "name": "payload-label-popover",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2-beta.1",
   "description": "A plugin to add descriptive popovers to field labels in Payload.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
