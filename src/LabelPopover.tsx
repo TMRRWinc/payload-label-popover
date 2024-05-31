@@ -19,7 +19,10 @@ export const LabelPopover: React.FC<Props> = props => {
 
   if (label) {
     return (
-      <div style={{ display: 'flex' }}>
+      <label
+        className="field-label"
+        style={{ display: 'flex', width: 'fit-content', maxWidth: '100%' }}
+      >
         {getTranslation(label, i18n)}
         {required && <span className="required">*</span>}
         {showLabelPopover && (
@@ -79,7 +82,7 @@ export const LabelPopover: React.FC<Props> = props => {
             </button>
           </Popover>
         )}
-      </div>
+      </label>
     )
   }
 
