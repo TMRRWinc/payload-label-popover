@@ -7,17 +7,22 @@ import { CollectionConfig, Field } from 'payload/dist/exports/types'
 const addCustomLabelToFields = (collection: CollectionConfig) => {
   const traverseFields = (fields: Field[]) => {
     fields.forEach(field => {
-      field.admin = field.admin ?? {}
-      field.admin.components = {
-        ...(field.admin?.components ?? {}),
-        //@ts-ignore
-        Label: props =>
-          LabelPopover({
-            ...props,
-            showLabelPopover: field.custom?.showLabelPopover,
-            labelPopover: field.custom?.labelPopover,
-          }),
+      
+
+      if (!['array', 'blocks', 'collapsible', 'group', 'point', 'row', 'ui'].includes(field.type)) {
+        field.admin = field.admin ?? {}
+        field.admin.components = {
+          ...(field.admin?.components ?? {}),
+          //@ts-ignore
+          Label: props =>
+            LabelPopover({
+              ...props,
+              showLabelPopover: field.custom?.showLabelPopover,
+              labelPopover: field.custom?.labelPopover,
+            }),
+        }
       }
+      
       if ('fields' in field) {
         traverseFields(field.fields)
       }
