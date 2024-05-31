@@ -1,8 +1,9 @@
 {
   "name": "payload-label-popover",
-  "version": "1.0.1",
+  "version": "1.0.2-beta.0",
   "description": "A plugin to add descriptive popovers to field labels in Payload.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "peerDependencies": {
     "payload": "^2.0.0"
   },
@@ -15,6 +16,7 @@
     "@types/jest": "^29.5.11",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
+    "copyfiles": "^2.4.1",
     "dotenv": "^8.2.0",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -29,7 +31,9 @@
     "webpack": "^5.90.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && yarn copyFiles && npm pack",
+    "copyFiles": "copyfiles -u 1 ./src/**/*.scss dist"
   },
   "repository": {
     "type": "git",
@@ -48,5 +52,9 @@
   "homepage": "https://github.com/notchris/payload-label-popover#readme",
   "dependencies": {
     "react-tiny-popover": "^8.0.4"
-  }
+  },
+  "files": [
+    "dist",
+    "LICENSE.txt"
+  ]
 }
