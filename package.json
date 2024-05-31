@@ -1,6 +1,6 @@
 {
-  "name": "payload-label-popover",
-  "version": "1.0.2-beta.1",
+  "name": "@tmrrw-labs/payload-plugin-label-popover",
+  "version": "1.0.0",
   "description": "A plugin to add descriptive popovers to field labels in Payload.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/notchris/payload-label-popover.git"
+    "url": "git+ssh://git@github.com/TMRRWinc/payload-label-popover.git"
   },
   "keywords": [
     "payload",
@@ -45,11 +45,12 @@
     "payload-plugin"
   ],
   "author": "notchris <mail@chrismcgrane.com>",
+  "contributors": ["shawnvogt <shawn@tmrrwinc.ca>"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/notchris/payload-label-popover/issues"
+    "url": "https://github.com/TMRRWinc/payload-label-popover/issues"
   },
-  "homepage": "https://github.com/notchris/payload-label-popover#readme",
+  "homepage": "https://github.com/TMRRWinc/payload-label-popover#readme",
   "dependencies": {
     "react-tiny-popover": "^8.0.4"
   },
