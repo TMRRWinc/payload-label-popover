@@ -1,15 +1,15 @@
 # Payload Label Popover Plugin
-#### Adds a descriptive popover to [Payload](https://payloadcms.com/) field labels (using [React Tiny Popover](https://github.com/alexkatz/react-tiny-popover)).
+#### Adds a descriptive popover to [Payload](https://payloadcms.com/) field labels (using [Reactjs-popup](https://github.com/yjose/reactjs-popup)).
 
-![image](https://github.com/notchris/payload-label-popover/blob/main/example.png?raw=true)
+![image](https://github.com/TMRRWinc/payload-label-popover/blob/main/example.png?raw=true)
 
 
 ## Installation
 
 ```bash
-  yarn add payload-label-popover
+  yarn add @tmrrw-labs/payload-plugin-label-popover
   #OR
-  npm i payload-label-popover
+  npm i @tmrrw-labs/payload-plugin-label-popover
 ```
 
 ## Basic Usage
