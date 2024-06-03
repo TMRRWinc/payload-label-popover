@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ArrowContainer, Popover } from 'react-tiny-popover'
+import { ArrowContainer, Popover, BoundaryViolations } from 'react-tiny-popover'
 
 import { getTranslation } from 'payload/utilities'
 
@@ -17,18 +17,22 @@ export const LabelPopover: React.FC<Props> = props => {
   const { t, i18n } = useTranslation()
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
+  const ref = useRef<HTMLLabelElement>(null)
   if (label) {
     return (
       <label
         className="field-label"
         style={{ display: 'flex', width: 'fit-content', maxWidth: '100%' }}
+        ref={ref}
       >
         {getTranslation(label, i18n)}
         {required && <span className="required">*</span>}
         {showLabelPopover && (
           <Popover
+            parentElement={ref.current || undefined} // This is not the correct usage of parentElement. But it is fixing the issue of the popover not positioning correctly for fields rendered off page
+            containerStyle={{ zIndex: '9999' }}
             isOpen={isPopoverOpen}
-            positions={['top', 'right', 'left', 'bottom']}
+            positions={['top', 'right', 'bottom', 'left']}
             padding={10}
             onClickOutside={() => setIsPopoverOpen(false)}
             content={({ position, childRect, popoverRect }) => (
