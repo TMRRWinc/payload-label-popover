@@ -7,6 +7,7 @@ import path from 'path'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 //@ts-ignore
 import { labelPopoverPlugin } from '../../src/index'
+import { Example } from './globals/Example'
 
 export default buildConfig({
   admin: {
@@ -30,6 +31,7 @@ export default buildConfig({
   },
   editor: slateEditor({}),
   collections: [Examples, Users],
+  globals: [Example],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },

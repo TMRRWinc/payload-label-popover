@@ -2,13 +2,11 @@ import type { Plugin } from 'payload/config'
 
 import { onInitExtension } from './onInitExtension'
 import { LabelPopover } from './LabelPopover'
-import { CollectionConfig, Field } from 'payload/dist/exports/types'
+import { CollectionConfig, Field, GlobalConfig } from 'payload/dist/exports/types'
 
-const addCustomLabelToFields = (collection: CollectionConfig) => {
+const addCustomLabelToFields = <T extends GlobalConfig | CollectionConfig>(collection: T) => {
   const traverseFields = (fields: Field[]) => {
     fields.forEach(field => {
-      
-
       if (!['array', 'blocks', 'collapsible', 'group', 'point', 'row', 'ui'].includes(field.type)) {
         field.admin = field.admin ?? {}
         field.admin.components = {
@@ -22,7 +20,7 @@ const addCustomLabelToFields = (collection: CollectionConfig) => {
             }),
         }
       }
-      
+
       if ('fields' in field) {
         traverseFields(field.fields)
       }
@@ -57,6 +55,12 @@ export const labelPopoverPlugin =
     if (config.collections !== undefined) {
       config.collections.forEach(collection => {
         addCustomLabelToFields(collection)
+      })
+    }
+
+    if (config.globals !== undefined) {
+      config.globals.forEach(global => {
+        addCustomLabelToFields(global)
       })
     }
 
