@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const LabelPopover: React.FC<Props> = props => {
-  const { label, required = false, labelPopover, showLabelPopover } = props
+  const { label, required = false, labelPopover, showLabelPopover, htmlFor, children } = props
   const { t, i18n } = useTranslation()
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
@@ -24,6 +24,7 @@ export const LabelPopover: React.FC<Props> = props => {
         className="field-label"
         style={{ display: 'flex', width: 'fit-content', maxWidth: '100%' }}
         ref={ref}
+        htmlFor={htmlFor}
       >
         {getTranslation(label, i18n)}
         {required && <span className="required">*</span>}
