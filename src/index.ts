@@ -1,1 +1,1 @@
-export { labelPopoverPlugin } from './plugin'
+export { labelPopoverPlugin } from './plugin.js'

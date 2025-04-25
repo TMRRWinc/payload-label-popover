@@ -1,8 +1,5 @@
-import type { Plugin } from 'payload/config'
-
-import { onInitExtension } from './onInitExtension'
-import { LabelPopover } from './LabelPopover'
-import { CollectionConfig, Field, GlobalConfig } from 'payload/dist/exports/types'
+import type { Plugin } from 'payload'
+import { CollectionConfig, Field, GlobalConfig } from 'payload'
 
 const addCustomLabelToFields = <T extends GlobalConfig | CollectionConfig>(collection: T) => {
   const traverseFields = (fields: Field[]) => {
@@ -12,12 +9,13 @@ const addCustomLabelToFields = <T extends GlobalConfig | CollectionConfig>(colle
         field.admin.components = {
           ...(field.admin?.components ?? {}),
           //@ts-ignore
-          Label: props =>
-            LabelPopover({
-              ...props,
-              showLabelPopover: field.custom?.showLabelPopover,
-              labelPopover: field.custom?.labelPopover,
-            }),
+          // Label: props =>
+          //   LabelPopover({
+          //     ...props,
+          //     showLabelPopover: field.custom?.showLabelPopover,
+          //     labelPopover: field.custom?.labelPopover,
+          //   }),
+          Label: {path: '/src/LabelPopover#LabelPopover'}
         }
       }
 
@@ -64,9 +62,11 @@ export const labelPopoverPlugin =
       })
     }
 
+    const incomingOnInit = config.onInit
+
     config.onInit = async payload => {
-      if (incomingConfig.onInit) await incomingConfig.onInit(payload)
-      onInitExtension(pluginOptions, payload)
+      if (incomingOnInit) await incomingOnInit(payload)
+      
     }
 
     return config
