@@ -1,14 +1,13 @@
-import { FieldLabel } from "@payloadcms/ui";
-import { FieldServerComponent, TextField } from "payload";
-import { Popover } from "react-tiny-popover";
-import LabelPopoverClient from "./LabelPopoverClient.js";
+import { FieldLabel } from '@payloadcms/ui'
+import { FieldServerComponent } from 'payload'
+import LabelPopoverClient from './LabelPopoverClient.js'
 
-export const LabelPopover: FieldServerComponent = ({field}) => {
+export const LabelPopover: FieldServerComponent = ({ field }) => {
   if (!('label' in field)) {
     return null
   }
 
-  let name = ""
+  let name = ''
   if ('name' in field) {
     name = field.name
   }
@@ -22,23 +21,33 @@ export const LabelPopover: FieldServerComponent = ({field}) => {
     localized = Boolean(field.localized)
   }
 
-  const {custom, admin, label} = field 
-  const {labelPopover, showLabelPopover} = custom as {labelPopover: React.FC | string, showLabelPopover: boolean}
+  const { custom, admin, label } = field
+
+  const { labelPopover = '', showLabelPopover = false } = (custom as {
+    labelPopover: React.FC | string
+    showLabelPopover: boolean
+  }) || { labelPopover: '', showLabelPopover: false }
 
   return (
     <label>
       {showLabelPopover ? (
         // @ts-ignore
-        <LabelPopoverClient 
-          htmlFor={name} 
-          labelPopover={labelPopover as string} 
-          showLabelPopover={showLabelPopover} 
+        <LabelPopoverClient
+          htmlFor={name}
+          labelPopover={labelPopover as string}
+          showLabelPopover={showLabelPopover}
           required={required}
           label={label as string}
           localized={localized}
-          />
-      ) : <FieldLabel htmlFor={name} label={label as string} required={required} localized={localized} />}
+        />
+      ) : (
+        <FieldLabel
+          htmlFor={name}
+          label={label as string}
+          required={required}
+          localized={localized}
+        />
+      )}
     </label>
   )
 }
-  

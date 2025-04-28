@@ -10,10 +10,17 @@ type Props = {
   required?: boolean
   labelPopover: string
   showLabelPopover: boolean
-   localized?: boolean
+  localized?: boolean
 }
 
-export const LabelPopoverClient: FC<Props> = ({required, labelPopover, showLabelPopover, htmlFor, label, localized}) => {
+export const LabelPopoverClient: FC<Props> = ({
+  required,
+  labelPopover,
+  showLabelPopover,
+  htmlFor,
+  label,
+  localized,
+}) => {
   const { t, i18n } = useTranslation()
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
@@ -34,13 +41,13 @@ export const LabelPopoverClient: FC<Props> = ({required, labelPopover, showLabel
         {showLabelPopover && (
           // @ts-ignore
           <Popover
-          parentElement={ref.current || undefined} // This is not the correct usage of parentElement. But it is fixing the issue of the popover not positioning correctly for fields rendered off page
-          containerStyle={{ zIndex: '9999' }}
-          isOpen={isPopoverOpen}
-          positions={['top', 'right', 'bottom', 'left']}
-          padding={10}
-          onClickOutside={() => setIsPopoverOpen(false)}
-          content={({ position, childRect, popoverRect }) => (
+            parentElement={ref.current || undefined} // This is not the correct usage of parentElement. But it is fixing the issue of the popover not positioning correctly for fields rendered off page
+            containerStyle={{ zIndex: '9999' }}
+            isOpen={isPopoverOpen}
+            positions={['top', 'right', 'bottom', 'left']}
+            padding={10}
+            onClickOutside={() => setIsPopoverOpen(false)}
+            content={({ position, childRect, popoverRect }) => (
               // @ts-ignore
               <ArrowContainer
                 position={position}
