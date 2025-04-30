@@ -8,7 +8,9 @@ const addCustomLabelToFields = <T extends GlobalConfig | CollectionConfig>(colle
         field.admin = field.admin ?? {}
         field.admin.components = {
           ...(field.admin?.components ?? {}),
-          Label: { path: '@tmrrw-labs/payload-plugin-label-popover#LabelPopover' },
+          Label: {
+            path: '@tmrrw-labs/payload-plugin-label-popover/rsc#LabelPopover',
+          },
         }
       }
 

@@ -1,5 +1,5 @@
-import { LabelPopover as LabelPopover_5623408e48151eecf0d76d22a10b6f0b } from '../../../../src/LabelPopover'
+import { LabelPopover as LabelPopover_df822212a4e39695650f74609a32dd2b } from '../../../../src/LabelPopover'
 
 export const importMap = {
-  "/src/LabelPopover#LabelPopover": LabelPopover_5623408e48151eecf0d76d22a10b6f0b
+  "./src/LabelPopover#LabelPopover": LabelPopover_df822212a4e39695650f74609a32dd2b
 }

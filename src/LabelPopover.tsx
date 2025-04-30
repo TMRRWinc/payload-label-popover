@@ -1,8 +1,12 @@
 import { FieldLabel } from '@payloadcms/ui'
 import { FieldServerComponent } from 'payload'
-import LabelPopoverClient from './LabelPopoverClient.js'
+import { LabelPopoverClient } from '@tmrrw-labs/payload-plugin-label-popover/client'
 
-export const LabelPopover: FieldServerComponent = ({ field }) => {
+export const LabelPopover: FieldServerComponent = ({ field, path }) => {
+  if (!path) {
+    return null
+  }
+
   if (!('label' in field)) {
     return null
   }
