@@ -4,9 +4,7 @@ import Examples from './collections/Examples.js'
 import Users from './collections/Users.js'
 import path from 'path'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-//@ts-ignore
-// import { labelPopoverPlugin } from '../../src/index'
-import { labelPopoverPlugin } from "@tmrrw-labs/payload-plugin-label-popover"
+import { labelPopoverPlugin } from '@tmrrw-labs/payload-plugin-label-popover'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { testEmailAdapter } from './helpers/testEmailAdapter.js'
@@ -46,5 +44,5 @@ export default buildConfig({
     locales: ['en', 'fr'],
     defaultLocale: 'en',
     fallback: true,
-  }
+  },
 })

@@ -1,5 +1,5 @@
-import { LabelPopover as LabelPopover_df822212a4e39695650f74609a32dd2b } from '../../../../src/LabelPopover'
+import { LabelPopover as LabelPopover_a579aae80e475177438e46d6783173d7 } from '@tmrrw-labs/payload-plugin-label-popover/rsc'
 
 export const importMap = {
-  "./src/LabelPopover#LabelPopover": LabelPopover_df822212a4e39695650f74609a32dd2b
+  "@tmrrw-labs/payload-plugin-label-popover/rsc#LabelPopover": LabelPopover_a579aae80e475177438e46d6783173d7
 }
